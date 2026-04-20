@@ -2,7 +2,6 @@
 #define CREATURE_H
 
 #include <string>
-#include <cstdlib>
 
 class Creature
 {
@@ -17,16 +16,10 @@ public:
         health = h;
         damage = d;
     }
-//  simple randomness attack
+// add simple randomness 
     void attack(Creature &other)
     {
-        int hit = damage + (std::rand() % 3) - 1;
-        if (hit < 0)
-        {
-            hit = 0;
-        }
-
-        other.health -= hit; // reduce health by hit amount
+        other.health -= damage;
         if (other.health < 0)
         {
             other.health = 0;
